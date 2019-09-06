@@ -34,6 +34,7 @@ $(document).ready(function () {
       destination: destination,
       firstTrain: firstTrain,
       frequency: frequency,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
 
     });
   });
