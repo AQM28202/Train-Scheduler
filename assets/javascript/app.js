@@ -11,9 +11,17 @@ $(document).ready(function(){
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
 
+      var database = firebase.database();
+
+      var name; 
       $("#add-train").on("click", function() {
         event.preventDefault();
-        alert("Let's GO!!!")
-      
-      });
+
+    // Pushing to database
+      database.ref().push({
+      name: name,      
+   
     });
+  });
+});
+  
