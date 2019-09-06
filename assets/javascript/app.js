@@ -17,6 +17,9 @@ $(document).ready(function(){
       $("#add-train").on("click", function() {
         event.preventDefault();
 
+         // Storing and retreiving new train data
+         name = $("#train-name").val().trim();
+
     // Pushing to database
       database.ref().push({
       name: name,      
