@@ -14,15 +14,15 @@ $(document).ready(function () {
   var database = firebase.database();
 
   // Creating variables for the onClick event
-  var name;
-  var destination;
-  var firstTrain;
+  var name = "";
+  var destination ="";
+  var firstTrain = "";
   var frequency = 0;
 
   $("#add-train").on("click", function () {
     event.preventDefault();
 
-    //Pulling user entries from form
+    // Grabbed values from form
     name = $("#train-name").val().trim();
     destination = $("#destination").val().trim();
     firstTrain = $("#first-train").val().trim();
@@ -37,5 +37,6 @@ $(document).ready(function () {
       dateAdded: firebase.database.ServerValue.TIMESTAMP
 
     });
+    $("form")[0].reset();
   });
 });
