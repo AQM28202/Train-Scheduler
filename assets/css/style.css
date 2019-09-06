@@ -1,0 +1,4 @@
+span.icon:before { 
+    font-family: FontAwesome; 
+    content: "\f015"; 
+  }
