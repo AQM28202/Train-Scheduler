@@ -2,3 +2,8 @@ span.icon:before {
     font-family: FontAwesome; 
     content: "\f015"; 
   }
+.jumbotron {
+    background-image: url("/assets/images/map.png"); 
+    background-size: cover;
+  }
+
