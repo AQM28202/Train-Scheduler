@@ -11,4 +11,9 @@ $(document).ready(function(){
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
 
-   
+      $("#add-train").on("click", function() {
+        event.preventDefault();
+        alert("Let's GO!!!")
+      
+      });
+    });
