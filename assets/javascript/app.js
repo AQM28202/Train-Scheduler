@@ -58,16 +58,16 @@ $(document).ready(function () {
     nextTrain = moment(nextTrain).format("hh:mm");
 
     $("#add-row").prepend("<tr><td>" + childSnapshot.val().name +
-            "</td><td>" + childSnapshot.val().destination +
-            "</td><td>" + childSnapshot.val().frequency +
-            "</td><td>" + nextTrain + 
-            "</td><td>" + minsAway + "</td></tr>");
+      "</td><td>" + childSnapshot.val().destination +
+      "</td><td>" + childSnapshot.val().frequency +
+      "</td><td>" + nextTrain +
+      "</td><td>" + minsAway + "</td></tr>");
 
-        // Handle the errors
-    }, function(errorObject) {
-        console.log("Errors handled: " + errorObject.code);
-});
-
-
-
+    // Handle the errors
+  }, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
   });
+
+
+
+});
