@@ -39,11 +39,11 @@ $(document).ready(function () {
     });
     $("form")[0].reset();
   });
-  // Firebase watcher .on("child_added"
+  // Firebase watcher .on("child_added")
   database.ref().on("child_added", function (childSnapshot) {
 
     var minsAway;
-    // Chang year so first train comes before now
+    // Changes year so first train comes before now
     var userTrain = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
 
     // Difference between the current and firstTrain
