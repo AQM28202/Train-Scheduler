@@ -15,7 +15,7 @@ $(document).ready(function () {
 
   // Creating variables for the onClick event
   var name = "";
-  var destination ="";
+  var destination = "";
   var firstTrain = "";
   var frequency = 0;
 
@@ -39,4 +39,35 @@ $(document).ready(function () {
     });
     $("form")[0].reset();
   });
+  // Firebase watcher .on("child_added"
+  database.ref().on("child_added", function (childSnapshot) {
+
+    var minsAway;
+    // Chang year so first train comes before now
+    var userTrain = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
+
+    // Difference between the current and firstTrain
+    var diffTime = moment().diff(moment(userTrain), "minutes");
+    var remainder = diffTime % childSnapshot.val().frequency;
+
+    // Minutes until next train
+    var minsAway = childSnapshot.val().frequency - remainder;
+
+    // Next train time
+    var nextTrain = moment().add(minsAway, "minutes");
+    nextTrain = moment(nextTrain).format("hh:mm");
+
+    $("#add-row").prepend("<tr><td>" + childSnapshot.val().name +
+            "</td><td>" + childSnapshot.val().destination +
+            "</td><td>" + childSnapshot.val().frequency +
+            "</td><td>" + nextTrain + 
+            "</td><td>" + minsAway + "</td></tr>");
+
+        // Handle the errors
+    }, function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
 });
+
+
+
+  });
